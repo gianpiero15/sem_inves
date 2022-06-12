@@ -1,14 +1,13 @@
-const TasksContract = artifacts.require('TasksContract');
-contract("TasksContract",()=>{
+const GunsContract = artifacts.require('GunsContract');
+contract("GunsContract",()=>{
     before(async()=>{
-        this.tasksContract = await TasksContract.deployed()
+        this.gunBounty = await GunsContract.deployed()
     })
     it('migrate deployed successfully',async()=>{
-        const address =await this.tasksContract.address
+        const address =await this.gunBounty.address
         assert.notEqual(address, null);
         assert.notEqual(address, undefined);
         assert.notEqual(address, 0x0);
         assert.notEqual(address, "");
     });
-
 })
