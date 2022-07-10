@@ -12,13 +12,11 @@ contract("GunsContract",()=>{
     });
 
     it("get GunsContract", async () => {
-        const tasksCounter = await this.GunsContract.dealsCounter();
-        const task = await this.GunsContract.gunBounty(tasksCounter);
+        const dealsCounter = await this.gunBounty.dealsCounter();
+        const bounty = await this.gunBounty.gunBounty(dealsCounter+1);
     
-        assert.equal(task.id.toNumber(), tasksCounter.toNumber());
-        assert.equal(task.title, "my first task");
-        assert.equal(task.description, "my first description");
-        assert.equal(task.done, false);
-        assert.equal(tasksCounter, 1);
+        assert.equal(bounty.id.toNumber(), dealsCounter.toNumber());
+        assert.equal(bounty.vendedor, "");
+        assert.equal(bounty.dniVendedor, 0 );
       });
 })

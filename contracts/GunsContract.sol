@@ -5,19 +5,12 @@ contract GunsContract{
     address myOwner;
     uint public dealsCounter = 0;
 
-    modifier onlyOwner(){
-        require(msg.sender == myOwner);
-        _;
-    }
-    constructor(){
-        myOwner == msg.sender;
-    }
-
     struct GunBounty{
         uint id;
         string vendedor;
         uint dniVendedor;
         uint licenciaVendedor;
+        uint numeroserie;
         string comprador;
         uint dniComprador;
         uint licenciaComprador;
@@ -32,6 +25,7 @@ contract GunsContract{
         string vendedor,
         uint dniVendedor,
         uint licenciaVendedor,
+        uint numeroserie,
         string comprador,
         uint dniComprador,
         uint licenciaComprador,
@@ -45,14 +39,15 @@ contract GunsContract{
 
     //public --> pasar datos
     //view --> solo visibilidad
-    function createGunBounty (string memory _vendedor,uint _dniVendedor,uint _licenciaVendedor,string memory _comprador,uint _dniComprador, uint _licenciaComprador, uint _FUT,uint _contrato,uint _inspeccion) public{
+    function createGunBounty (string memory _vendedor,uint _dniVendedor,uint _licenciaVendedor,uint _numeroserie,string memory _comprador,uint _dniComprador, uint _licenciaComprador, uint _FUT,uint _contrato,uint _inspeccion) public{
         dealsCounter++;
-        gunBounty[dealsCounter] = GunBounty(dealsCounter,_vendedor,_dniVendedor,_licenciaVendedor,_comprador,_dniComprador,_licenciaComprador,_FUT,_contrato,_inspeccion,block.timestamp);
+        gunBounty[dealsCounter] = GunBounty(dealsCounter,_vendedor,_dniVendedor,_licenciaVendedor,_numeroserie,_comprador,_dniComprador,_licenciaComprador,_FUT,_contrato,_inspeccion,block.timestamp);
         emit GunBountyCreated(
             dealsCounter,
             _vendedor,
             _dniVendedor,
             _licenciaVendedor,
+            _numeroserie,
             _comprador,
             _dniComprador,
             _licenciaComprador,
@@ -62,6 +57,9 @@ contract GunsContract{
             block.timestamp
         );
     }
+
+    
+
 
 
 
