@@ -10,4 +10,15 @@ contract("GunsContract",()=>{
         assert.notEqual(address, 0x0);
         assert.notEqual(address, "");
     });
+
+    it("get GunsContract", async () => {
+        const tasksCounter = await this.GunsContract.dealsCounter();
+        const task = await this.GunsContract.gunBounty(tasksCounter);
+    
+        assert.equal(task.id.toNumber(), tasksCounter.toNumber());
+        assert.equal(task.title, "my first task");
+        assert.equal(task.description, "my first description");
+        assert.equal(task.done, false);
+        assert.equal(tasksCounter, 1);
+      });
 })
