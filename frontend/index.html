@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./style/bootstrap.css">
+    <link rel="stylesheet" href="./style/index.css">
     <title>Sem I</title>
 </head>
 <body>
@@ -15,10 +16,33 @@
                 <h4 id = "wallet" class="mt-3 text-center"></h4>
             </div>
             <div class = "col">
-                <div class="text-center">
-                    <a href="/form.html" class="btn btn-primary">Añadir registro</a>
+                <div class="row">
+                    <div class="col">
+                        <div class="text-center">
+                            <a href="/form.html" class="btn btn-primary">Añadir registro</a>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <form id="search">
+                            <div class="col">
+                                <div class="row">
+                                    <div class="col">
+                                        <input pattern="^[0-9]" min="0" type="number" class="form-control rounded-5" id="inputId" placeholder="Id">
+                                    </div>
+                                    <div class="col">
+                                        <div class="row">
+                                            <div class="col">
+                                                <button type="submit" class="btn btn-success mb-3">Buscar</button>
+                                            </div>
+                                        </div>                                        
+                                    </div>
+                                </div>
+        
+                            </div>
+                        </form>
+                    </div>
                 </div>
-                
+
             </div>
         </div>
         
