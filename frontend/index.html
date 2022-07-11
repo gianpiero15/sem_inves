@@ -47,15 +47,36 @@
         </div>
         
     </div>
-    <div class="container">
+    <div class="">
 
         <div id="listOfDeals">
 
         </div>
 
     </div>
-    
 
+      <!-- Modal -->
+      <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="staticBackdropLabel">Actualizar estado</h5>
+              <button type="" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" id="datos_body">
+              <p>Datos:</p>
+              <div id="datos">
+
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="" class="btn btn-primary" data-bs-dismiss="modal" id="actualizarBC">Actualizar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script src="../libs/@truffle/contract/dist/truffle-contract.min.js"></script>
     <script src="./js/app.js"></script>
     <script src="./js/bootstrap.bundle.js"></script>
