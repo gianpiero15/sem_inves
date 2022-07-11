@@ -20,6 +20,7 @@ let FUT_1 = 0;
 let contrato_1 = 0;
 let inspeccion_1 = 0;
 
+let wallet_1;
 
 
 const getAccount = async() =>{
@@ -114,6 +115,8 @@ const getAccountWallet = async()=>{
         method: 'eth_requestAccounts',
     })
     document.getElementById("wallet").innerText = "Wallet: "+ wallet[0]
+
+    wallet_1 = wallet[0]
 }
 
 const searchById = async(id)=>{
@@ -287,22 +290,30 @@ $(function() {
         inspeccionCheck.disabled=true
        }
        
-       vendedor_1 = parseInt(vendedor.toString());
+       vendedor_1 = vendedor.toString();
        dni_vendedor_1 = parseInt(dni_vendedor);
        licencia_vendedor_1 = parseInt(licencia_vendedor);
        numero_serie_1 =parseInt(numero_serie);
-       comprador_1 = parseInt(comprador.toString());
+       comprador_1 = comprador.toString();
        dni_comprador_1 = parseInt(dni_comprador);
        licencia_comprador_1 =  parseInt(licencia_comprador);
        FUT_1 = parseInt(FUT);
        contrato_1 = parseInt(contrato);
        inspeccion_1 = parseInt(inspeccion);
 
+       const btnLua_1  = document.querySelector("#actualizarBC");
+
+       if(FUT_1 == 1 && contrato_1 == 1 && inspeccion_1 ==1){
+        btnLua_1.disabled= true
+       }else{
+        btnLua_1.disabled= false
+       }
+
      });
    }
 );
 
-const btnLua  = document.querySelector("#actualizarBC")
+const btnLua  = document.querySelector("#actualizarBC");
 
 btnLua.addEventListener("click",async (event)=>{
     const futCheck = document.querySelector("#fut");
@@ -329,16 +340,10 @@ btnLua.addEventListener("click",async (event)=>{
     contrato_1 = parseInt(contratoCheck.value);
     inspeccion_1 = parseInt(inspeccionCheck.value);
     console.log(FUT_1)
-    await gunsContracts.createGunBounty();
-
-
-
+    console.log(vendedor_1)
+    await gunsContracts.createGunBounty(vendedor_1,dni_vendedor_1,licencia_vendedor_1,numero_serie_1,comprador_1,dni_comprador_1,licencia_comprador_1,FUT_1,contrato_1,inspeccion_1,{
+        from: wallet_1,
+    });
 })
 
 console.log(Web3Provider);
-
-
-
-
-
-
